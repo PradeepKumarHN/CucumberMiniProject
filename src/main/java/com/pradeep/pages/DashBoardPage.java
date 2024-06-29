@@ -15,28 +15,32 @@ public class DashBoardPage extends BasePage {
     private final By searchTextbox = By.xpath("//input[@id='small-searchterms']");
     private final By searchButton = By.xpath("//button[normalize-space()='Search']");
 
-    private final By searchResults = By.xpath("//div[@class='search-results']");
-
-    private final String searchWithKeywords = "//div[@class='search-results']//a[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '%s')]";
+    private static String searchWithKeywords = "//div[@class='search-results']//a[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '%s')]";
     private final By searchedItem1 = By.xpath("//div[@class=\"product-item\"]//h2");
 
-    private final By searchedItem1ProductDetails = By.xpath("//div[@class=\"product-name\"]");
+    private final By searchedItem1ProductDetails = By.xpath("//div[@class='search-results']//a[contains(text(),'Lenovo')]");
 
     public boolean isLoggedInSuccessfully() {
         return DriverManager.getDriver().findElement(logoutOption).isEnabled();
     }
 
-    public void EnterItemToSearch(String itemToSearch) {
+    public DashBoardPage enterItemToSearch(String itemToSearch) {
         clickOnElementWhenItsClickable(DriverManager.getDriver(), searchTextbox);
         sendKeysWhenElementIsVisible(DriverManager.getDriver(), searchTextbox, itemToSearch);
+        return this;
     }
 
     public void searchItem() {
         clickOnElementWithJS(DriverManager.getDriver(), searchButton);
     }
 
-    public boolean searchResults() {
-        return DriverManager.getDriver().findElement(searchResults).isEnabled();
+    public boolean searchResults(String item) {
+        List<WebElement> elements=DriverManager.getDriver().findElements(By.partialLinkText(item));
+        List<String> textList = new ArrayList<>();
+        for(WebElement ele:elements){
+            textList.add(ele.getText());
+        }
+        return textList.contains(item);
     }
 
 
