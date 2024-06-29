@@ -11,7 +11,7 @@ import org.testng.annotations.DataProvider;
         features = "src/test/resources/features",
         glue = {"com.pradeep.stepdefinitions"},
         tags = "@ItemManage",
-        plugin = {"pretty", "html:target/cucumber-reports-DashboardRunner.html", "json:target/cucumber-DashboardRunner.json"},
+        plugin = {"pretty", "html:target/html/cucumber-reports-DashboardRunner.html", "json:target/json/cucumber-DashboardRunner.json"},
         monochrome = true
 )
 public class DashboardRunner extends AbstractTestNGCucumberTests {

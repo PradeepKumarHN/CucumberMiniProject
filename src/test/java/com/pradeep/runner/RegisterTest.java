@@ -11,7 +11,7 @@ import org.testng.annotations.DataProvider;
         features = "src/test/resources/features",
         glue = {"com.pradeep.stepdefinitions"},
         tags = "@Register",
-        plugin = {"pretty", "html:target/cucumber-reports-register.html", "json:target/cucumber-register.json"},
+        plugin = {"pretty", "html:target/html/cucumber-reports-register.html", "json:target/json/cucumber-register.json"},
         monochrome = true
 )
 public class RegisterTest extends AbstractTestNGCucumberTests {

@@ -6,7 +6,7 @@ import org.testng.annotations.DataProvider;
 
 @CucumberOptions(features = "src/test/resources/features",
         glue = {"com.pradeep.stepdefinitions"},
-        plugin = {"pretty", "html:target/cucumber-reports.html", "json:target/cucumber.json"},
+        plugin = {"pretty", "html:target/html/cucumber-reports.html", "json:target/json/cucumber.json"},
         monochrome = true,
         dryRun = false,
         tags="@Login",
