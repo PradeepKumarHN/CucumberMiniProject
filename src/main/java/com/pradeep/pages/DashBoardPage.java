@@ -18,7 +18,7 @@ public class DashBoardPage extends BasePage {
     private static String searchWithKeywords = "//div[@class='search-results']//a[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '%s')]";
     private final By searchedItem1 = By.xpath("//div[@class=\"product-item\"]//h2");
 
-    private final By searchedItem1ProductDetails = By.xpath("//div[@class='search-results']//a[contains(text(),'Lenovo')]");
+    private static String searchedItem1ProductDetails ="//form[@id='product-details-form']//h1[contains(text(),'%s')]";
 
     public boolean isLoggedInSuccessfully() {
         return DriverManager.getDriver().findElement(logoutOption).isEnabled();
@@ -54,16 +54,17 @@ public class DashBoardPage extends BasePage {
         return !status;
     }
 
-    public boolean clickOnFirstItemFromSerchedResults() {
+    public boolean clickOnFirstItemFromSerchedResults(String item) {
         try {
-            clickOnElementWithJS(DriverManager.getDriver(), searchedItem1);
+            clickOnElementWithJS(DriverManager.getDriver(), By.partialLinkText(item));
             return true;
         } catch (TimeoutException e) {
             return false;
         }
     }
 
-    public boolean isDetailsOfFirstItemFromSerchedResultsVisible() {
-        return DriverManager.getDriver().findElements(searchedItem1ProductDetails).size() == 1;
+    public boolean isDetailsOfFirstItemFromSerchedResultsVisible(String item) {
+        String itemSearch=searchedItem1ProductDetails.replace("%s",item);
+        return DriverManager.getDriver().findElements(By.xpath(itemSearch)).size() == 1;
     }
 }

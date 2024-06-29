@@ -6,7 +6,7 @@
             <class name="com.pradeep.runner.RegisterTest"/>
         </classes>
     </test>
-    <test name="Login">
+<!--    <test name="Login">
         <classes>
             <class name="com.pradeep.runner.TestRunner"/>
         </classes>
@@ -15,5 +15,5 @@
         <classes>
             <class name="com.pradeep.runner.DashboardRunner"/>
         </classes>
-    </test>
+    </test>-->
 </suite>

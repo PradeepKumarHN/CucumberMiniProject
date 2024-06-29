@@ -60,11 +60,16 @@ public class DashBoardSteps {
 
     @When("User clicks on an item")
     public void userClicksOnAnItem() {
-        new DashBoardPage().clickOnFirstItemFromSerchedResults();
+        new DashBoardPage().clickOnFirstItemFromSerchedResults(data.get("item-name"));
     }
 
     @Then("User should see the item details page")
     public void userShouldSeeTheItemDetailsPage() {
-        Assertions.assertThat(new DashBoardPage().isDetailsOfFirstItemFromSerchedResultsVisible()).isTrue();
+        Assertions.assertThat(new DashBoardPage().isDetailsOfFirstItemFromSerchedResultsVisible(data.get("item-name"))).isTrue();
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
