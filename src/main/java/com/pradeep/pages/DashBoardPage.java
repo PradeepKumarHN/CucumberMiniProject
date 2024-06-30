@@ -19,7 +19,11 @@ public class DashBoardPage extends BasePage {
     private final By searchedItem1 = By.xpath("//div[@class=\"product-item\"]//h2");
 
     private static String searchedItem1ProductDetails ="//form[@id='product-details-form']//h1[contains(text(),'%s')]";
+    private final By addToCart = By.xpath("//div[@class='add-to-cart']//button[text()='Add to cart']");
 
+    private final By shoppingCartItem = By.xpath("//table//a[normalize-space()='Lenovo Thinkpad X1 Carbon Laptop']");
+
+    private final By clickOnShoppingCart = By.xpath("//span[@class='cart-label']");
     public boolean isLoggedInSuccessfully() {
         return DriverManager.getDriver().findElement(logoutOption).isEnabled();
     }
@@ -66,5 +70,13 @@ public class DashBoardPage extends BasePage {
     public boolean isDetailsOfFirstItemFromSerchedResultsVisible(String item) {
         String itemSearch=searchedItem1ProductDetails.replace("%s",item);
         return DriverManager.getDriver().findElements(By.xpath(itemSearch)).size() == 1;
+    }
+
+    public void addToCart(){
+        clickOnElementWithJS(DriverManager.getDriver(),addToCart);
+    }
+    public boolean isItemAddedIntoShoppingCart(){
+        clickOnElementWithJS(DriverManager.getDriver(),clickOnShoppingCart);
+        return DriverManager.getDriver().findElement(shoppingCartItem).isDisplayed();
     }
 }

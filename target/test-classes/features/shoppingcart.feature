@@ -3,7 +3,7 @@ Feature: Managing items in the shopping cart
 Scenario: User adds an item to the shopping cart
 Given the user has searched for items
 When the user selects an item from the search results
-And the user clicks on the "Add to Cart" button
+And the user clicks on the Add to Cart button
 Then the item should be added to the shopping cart
 #
 #Scenario: User views the shopping cart

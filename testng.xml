@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Cucumber UI test suite" parallel="false" thread-count="2">
-<!--    <test name="Registration">
+ <!--   <test name="Registration">
         <classes>
             <class name="com.pradeep.runner.RegisterTest"/>
         </classes>
@@ -10,10 +10,15 @@
         <classes>
             <class name="com.pradeep.runner.TestRunner"/>
         </classes>
-    </test>-->
+    </test>
     <test name="DashBoard Item Management">
         <classes>
             <class name="com.pradeep.runner.DashboardRunner"/>
+        </classes>
+    </test>-->
+    <test name="Shopping cart actions">
+        <classes>
+            <class name="com.pradeep.runner.ShoppingCartRunner"/>
         </classes>
     </test>
 </suite>
