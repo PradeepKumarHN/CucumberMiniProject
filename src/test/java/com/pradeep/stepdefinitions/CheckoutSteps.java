@@ -7,7 +7,9 @@ import com.pradeep.pages.HomePage;
 import com.pradeep.pages.LoginPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.assertj.core.api.Assertions;
 
 public class CheckoutSteps {
 
@@ -21,7 +23,9 @@ public class CheckoutSteps {
     public void userHasItemsInTheShoppingCart() {
         DashBoardPage dashBoardPage= new DashBoardPage();
         dashBoardPage.enterItemToSearch(UserData.getInstance().getItemName()).searchItem();
+        dashBoardPage.clickOnFirstItemFromSerchedResults(UserData.getInstance().getItemName());
         dashBoardPage.addToCart();
+        dashBoardPage.clickOnShoppingCartMenu();
     }
 
     @When("User proceeds to checkout")
@@ -29,5 +33,33 @@ public class CheckoutSteps {
         new CheckoutPage()
                 .agreeTermsAndConditions()
                 .clickOnCheckout();
+    }
+
+    @And("User enters shipping and payment details")
+    public void userEntersShippingAndPaymentDetails() {
+        new CheckoutPage()
+                .enterBillingAddressDetails
+                        (UserData.getInstance().getCountry(),
+                                UserData.getInstance().getCity(),
+                                UserData.getInstance().getAddress(),
+                                UserData.getInstance().getZipCode(),
+                                UserData.getInstance().getMobNumber());
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        new CheckoutPage().chooseShippingMode().choosePaymentMode();
+    }
+
+    @And("User confirms the order")
+    public void userConfirmsTheOrder() {
+        new CheckoutPage().confirmOrder();
+    }
+
+
+    @Then("User should see the order confirmation page")
+    public void userShouldSeeTheOrderConfirmationPage() {
+        Assertions.assertThat(new CheckoutPage().isOrderCompleted()).containsIgnoringCase("Your order has been successfully processed!");
     }
 }
