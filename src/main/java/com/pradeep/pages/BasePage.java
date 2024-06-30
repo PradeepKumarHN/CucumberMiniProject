@@ -23,14 +23,16 @@ public class BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(by)).sendKeys(dataToSend);
     }
     protected void clickOnElementWithJS(WebDriver driver,By by){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        moveToElementSmoothly(driver,by);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", element);
     }
     protected void sendKeysWithJS(WebDriver driver, By by, String keys) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        moveToElementSmoothly(driver,by);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].value='" + keys + "';", element);
     }

@@ -17,7 +17,6 @@ public class DashBoardPage extends BasePage {
     private final By searchButton = By.xpath("//button[normalize-space()='Search']");
 
     private static String searchWithKeywords = "//div[@class='search-results']//a[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '%s')]";
-    private final By searchedItem1 = By.xpath("//div[@class=\"product-item\"]//h2");
 
     private static String searchedItem1ProductDetails ="//form[@id='product-details-form']//h1[contains(text(),'%s')]";
     private final By addToCart = By.xpath("//div[@class='add-to-cart']//button[text()='Add to cart']");
@@ -77,12 +76,6 @@ public class DashBoardPage extends BasePage {
     }
 
     public void addToCart(){
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
         clickOnElementWithJS(DriverManager.getDriver(),addToCart);
     }
     public boolean isItemAddedIntoShoppingCart(){
