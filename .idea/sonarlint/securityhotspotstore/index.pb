@@ -30,8 +30,6 @@ c
 .src/main/java/com/pradeep/pages/LoginPage.java,1\1\115a9ece7c533129404090d0d98034ee2e18477f
 ]
 -src/main/java/com/pradeep/pages/HomePage.java,f\8\f87f01325286d38c3a2da6a933926efeb109ebe9
-r
-Bsrc/test/java/com/pradeep/stepdefinitions/ItemManagementSteps.java,3\d\3dd91080f285b8ea78116be4fd5959b2f5dd45cc
 b
 2src/main/java/com/pradeep/pages/DashBoardPage.java,2\6\26dbc42bad308dceb9f4f7de369ea84280e15dd8
 l
@@ -40,5 +38,9 @@ e
 5src/main/java/com/pradeep/pages/RegistrationPage.java,7\0\70a22fbc6bf3eee4580863c01a773e172c94ae65
 b
 2src/test/java/com/pradeep/runner/RegisterTest.java,c\8\c864b86689b4056607a9cddd2839e7636aafcacc
-`
-0src/test/java/com/pradeep/runner/ItemRunner.java,e\e\ee3751b64b40b4340aa5758965b41a004ce4b268
+e
+5src/test/java/com/pradeep/runner/DashboardRunner.java,4\b\4bfc6ea89293f4721836cd8279d3c1ee552fdd79
+m
+=src/test/java/com/pradeep/stepdefinitions/DashBoardSteps.java,9\5\9510df8c3a83bfad41f3d84cd836b7d08067e103
+p
+@src/test/java/com/pradeep/stepdefinitions/ShoppingCartSteps.java,b\5\b5c547368d3d8ceccc39ba1bc2b7c731118c7148
