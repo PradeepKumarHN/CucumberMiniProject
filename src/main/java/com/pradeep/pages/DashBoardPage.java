@@ -2,6 +2,7 @@ package com.pradeep.pages;
 
 import com.pradeep.driver.DriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 
@@ -24,6 +25,9 @@ public class DashBoardPage extends BasePage {
     private final By shoppingCartItem = By.xpath("//table//a[normalize-space()='Lenovo Thinkpad X1 Carbon Laptop']");
 
     private final By clickOnShoppingCart = By.xpath("//span[@class='cart-label']");
+    private final By itemQty=By.xpath("//div[@class=\"product-quantity\"]//input");
+    private final By deleteItemFromCart=By.xpath("//button[@class='remove-btn']");
+
     public boolean isLoggedInSuccessfully() {
         return DriverManager.getDriver().findElement(logoutOption).isEnabled();
     }
@@ -73,10 +77,39 @@ public class DashBoardPage extends BasePage {
     }
 
     public void addToCart(){
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         clickOnElementWithJS(DriverManager.getDriver(),addToCart);
     }
     public boolean isItemAddedIntoShoppingCart(){
         clickOnElementWithJS(DriverManager.getDriver(),clickOnShoppingCart);
         return DriverManager.getDriver().findElement(shoppingCartItem).isDisplayed();
+    }
+
+    public void clickOnShoppingCartMenu() {
+        clickOnElementWithJS(DriverManager.getDriver(),clickOnShoppingCart);
+    }
+    public void editQuantityOfTheItem(String qty){
+        sendKeysWithJS(DriverManager.getDriver(),itemQty,qty);
+    }
+    public boolean isEditedItemIncreasedQty(String qty){
+        String qtyFound=DriverManager.getDriver().findElement(itemQty).getAttribute("value");
+        return qtyFound.equalsIgnoreCase(qty);
+    }
+
+    public void deleteItemFromShoppingCart() {
+        clickOnElementWithJS(DriverManager.getDriver(),deleteItemFromCart);
+    }
+
+    public boolean isItemDeleted() {
+         try {
+             DriverManager.getDriver().findElement(deleteItemFromCart);
+         }
+         catch (NoSuchElementException e){return true;
+         }return false;
     }
 }

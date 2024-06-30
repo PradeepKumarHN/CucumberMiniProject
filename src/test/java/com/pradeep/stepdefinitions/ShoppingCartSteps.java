@@ -17,7 +17,7 @@ public class ShoppingCartSteps {
         new HomePage().clickOnLoginMenu();
         new LoginPage().enterUserID(UserData.getInstance().getUserAccount())
                 .enterPassword(UserData.getInstance().getPassword()).clickOnLoginButton();
-        new DashBoardPage().searchResults(UserData.getInstance().getItemName());
+        new DashBoardPage().enterItemToSearch(UserData.getInstance().getItemName()).searchItem();
     }
 
     @When("the user selects an item from the search results")
@@ -33,5 +33,39 @@ public class ShoppingCartSteps {
     @Then("the item should be added to the shopping cart")
     public void theItemShouldBeAddedToTheShoppingCart() {
         Assertions.assertThat(new DashBoardPage().isItemAddedIntoShoppingCart()).isTrue();
+    }
+
+    @Given("the user is viewing the shopping cart")
+    public void theUserIsViewingTheShoppingCart() {
+        new HomePage().clickOnLoginMenu();
+        new LoginPage().enterUserID(UserData.getInstance().getUserAccount())
+                .enterPassword(UserData.getInstance().getPassword()).clickOnLoginButton();
+        DashBoardPage dashBoardPage=new DashBoardPage();
+        dashBoardPage.enterItemToSearch(UserData.getInstance().getItemName()).searchItem();
+        dashBoardPage.clickOnFirstItemFromSerchedResults(UserData.getInstance().getItemName());
+        dashBoardPage.addToCart();
+        dashBoardPage.clickOnShoppingCartMenu();
+    }
+
+    @When("the user changes the quantity of an item to {string}")
+    public void theUserChangesTheQuantityOfAnItemTo(String qty) {
+        new DashBoardPage().editQuantityOfTheItem(qty);
+    }
+
+    @Then("the shopping cart should be updated with the new quantity {string}")
+    public void theShoppingCartShouldBeUpdatedWithTheNewQuantity(String qty) {
+        Assertions.assertThat(new DashBoardPage().isEditedItemIncreasedQty(qty)).isTrue();
+    }
+
+    @When("the user clicks on the Remove button for an item")
+    public void theUserClicksOnTheRemoveButtonForAnItem() {
+
+
+        new DashBoardPage().deleteItemFromShoppingCart();
+    }
+
+    @Then("the item should be removed from the shopping cart")
+    public void theItemShouldBeRemovedFromTheShoppingCart() {
+        Assertions.assertThat(new DashBoardPage().isItemDeleted()).isTrue();
     }
 }
