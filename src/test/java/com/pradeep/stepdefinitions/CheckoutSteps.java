@@ -44,11 +44,6 @@ public class CheckoutSteps {
                                 UserData.getInstance().getAddress(),
                                 UserData.getInstance().getZipCode(),
                                 UserData.getInstance().getMobNumber());
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         new CheckoutPage().chooseShippingMode().choosePaymentMode();
     }
 
@@ -61,5 +56,20 @@ public class CheckoutSteps {
     @Then("User should see the order confirmation page")
     public void userShouldSeeTheOrderConfirmationPage() {
         Assertions.assertThat(new CheckoutPage().isOrderCompleted()).containsIgnoringCase("Your order has been successfully processed!");
+    }
+
+    @When("User navigates to the order history page")
+    public void userNavigatesToTheOrderHistoryPage() {
+        new CheckoutPage().clickOnMyAccount().clickOnOrders();
+    }
+
+    @And("User selects an order to view details")
+    public void userSelectsAnOrderToViewDetails() {
+        new CheckoutPage().viewOrderDetails();
+    }
+
+    @Then("User should see the order status")
+    public void userShouldSeeTheOrderStatus() {
+        Assertions.assertThat(new CheckoutPage().getOrderDetailsConfirmation()).containsIgnoringCase("Order");
     }
 }

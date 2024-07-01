@@ -44,3 +44,13 @@ m
 =src/test/java/com/pradeep/stepdefinitions/DashBoardSteps.java,9\5\9510df8c3a83bfad41f3d84cd836b7d08067e103
 p
 @src/test/java/com/pradeep/stepdefinitions/ShoppingCartSteps.java,b\5\b5c547368d3d8ceccc39ba1bc2b7c731118c7148
+h
+8src/test/java/com/pradeep/runner/ShoppingCartRunner.java,e\3\e37a93d6b8860eb4543fd890bfd88a2e0fa6b7b6
+\
+,src/main/java/com/pradeep/data/UserData.java,0\5\0511efe2373af4d641281302b831ab9ce15b1f6d
+d
+4src/test/java/com/pradeep/runner/CheckoutRunner.java,d\1\d1e68e9a6d28fea4a3357d731366e384095d96f5
+l
+<src/test/java/com/pradeep/stepdefinitions/CheckoutSteps.java,5\e\5e600c3f183bb043462d0a207c110e78df725c53
+a
+1src/main/java/com/pradeep/pages/CheckoutPage.java,2\3\23f596d1cb5381c830a91310f6812bda773feba2

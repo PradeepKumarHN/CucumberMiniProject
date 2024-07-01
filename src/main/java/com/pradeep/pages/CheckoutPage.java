@@ -3,6 +3,7 @@ package com.pradeep.pages;
 import com.pradeep.driver.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -28,7 +29,10 @@ public class CheckoutPage extends BasePage {
     private final By editAddress=By.xpath("//button[@id=\"edit-billing-address-button\"]");
     private final By confirmFinalOrder=By.xpath("//div[@id=\"confirm-order-buttons-container\"]//button");
     private final By orderConfirmationMessage=By.xpath("//div[@class=\"section order-completed\"]//strong");
-
+    private final By clickOnMyAccount=By.xpath("//a[@class='ico-account']");
+    private final By clickOnOrders=By.xpath("//a[normalize-space()='Orders']");
+    private final By viewOrdersDetails=By.xpath("//button[normalize-space()='Details']");
+    private final By orderVisible=By.xpath("//div[@class=\"order-number\"]//strong");
     public CheckoutPage agreeTermsAndConditions() {
         if (!DriverManager.getDriver().findElement(termsAndConditions).isSelected()) {
             clickOnElementWithJS(DriverManager.getDriver(), termsAndConditions);
@@ -44,8 +48,8 @@ public class CheckoutPage extends BasePage {
     public CheckoutPage enterBillingAddressDetails(String country, String city, String address1, String zipcode, String phoneNumber) {
         try {
             clickOnElementWhenItsClickable(DriverManager.getDriver(), editAddress);
-        }catch (NoSuchElementException e){
-            System.out.println("Since existing address not updated adding new address");
+        }catch (NoSuchElementException | TimeoutException e){
+            System.out.println("NOTE:-Since existing address not updated adding new address");
         }
         clickOnElementWhenItsClickable(DriverManager.getDriver(),countrySelect);
         Select select = new Select(DriverManager.getDriver().findElement(countrySelect));
@@ -77,4 +81,22 @@ public class CheckoutPage extends BasePage {
         return new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(60))
                 .until(ExpectedConditions.visibilityOfElementLocated(orderConfirmationMessage)).getText();
     }
+
+    public CheckoutPage clickOnMyAccount() {
+        clickOnElementWithJS(DriverManager.getDriver(),clickOnMyAccount);
+        return this;
+    }
+
+    public void clickOnOrders() {
+        clickOnElementWithJS(DriverManager.getDriver(),clickOnOrders);
+    }
+    public CheckoutPage viewOrderDetails(){
+        clickOnElementWithJS(DriverManager.getDriver(),viewOrdersDetails);
+        return this;
+    }
+    public String getOrderDetailsConfirmation(){
+        return new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(60))
+                .until(ExpectedConditions.visibilityOfElementLocated(orderVisible)).getText();
+    }
+
 }
