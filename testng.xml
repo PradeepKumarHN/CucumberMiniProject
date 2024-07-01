@@ -26,4 +26,5 @@
             <class name="com.pradeep.runner.CheckoutRunner"/>
         </classes>
     </test>
+
 </suite>

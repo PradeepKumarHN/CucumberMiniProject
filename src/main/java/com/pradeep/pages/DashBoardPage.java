@@ -1,17 +1,19 @@
 package com.pradeep.pages;
 
 import com.pradeep.driver.DriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DashBoardPage extends BasePage {
 
     private final By logoutOption = By.xpath("//a[normalize-space()='Log out']");
+    private final By loginOption = By.xpath("//a[normalize-space()='Log in']");
+
 
     private final By searchTextbox = By.xpath("//input[@id='small-searchterms']");
     private final By searchButton = By.xpath("//button[normalize-space()='Search']");
@@ -105,4 +107,14 @@ public class DashBoardPage extends BasePage {
          catch (NoSuchElementException e){return true;
          }return false;
     }
+
+    public void clickOnLogout(){
+        clickOnElementWithJS(DriverManager.getDriver(),logoutOption);
+    }
+
+    public boolean isLoggedOutSuccessfully(){
+        return new WebDriverWait(DriverManager.getDriver() , Duration.ofSeconds(60))
+                .until(ExpectedConditions.visibilityOfElementLocated(loginOption)).isDisplayed();
+    }
+
 }

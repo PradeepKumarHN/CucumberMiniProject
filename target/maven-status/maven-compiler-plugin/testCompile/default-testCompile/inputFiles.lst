@@ -3,5 +3,9 @@ C:\Users\prdp4\IdeaProjects\CucumberMiniProject\src\test\java\com\pradeep\runner
 C:\Users\prdp4\IdeaProjects\CucumberMiniProject\src\test\java\com\pradeep\stepdefinitions\LoginSteps.java
 C:\Users\prdp4\IdeaProjects\CucumberMiniProject\src\test\java\com\pradeep\stepdefinitions\RegisterSteps.java
 C:\Users\prdp4\IdeaProjects\CucumberMiniProject\src\test\java\com\pradeep\runner\DashboardRunner.java
+C:\Users\prdp4\IdeaProjects\CucumberMiniProject\src\test\java\com\pradeep\stepdefinitions\CheckoutSteps.java
+C:\Users\prdp4\IdeaProjects\CucumberMiniProject\src\test\java\com\pradeep\runner\CheckoutRunner.java
 C:\Users\prdp4\IdeaProjects\CucumberMiniProject\src\test\java\com\pradeep\stepdefinitions\TestBase.java
+C:\Users\prdp4\IdeaProjects\CucumberMiniProject\src\test\java\com\pradeep\runner\ShoppingCartRunner.java
+C:\Users\prdp4\IdeaProjects\CucumberMiniProject\src\test\java\com\pradeep\stepdefinitions\ShoppingCartSteps.java
 C:\Users\prdp4\IdeaProjects\CucumberMiniProject\src\test\java\com\pradeep\runner\RegisterTest.java

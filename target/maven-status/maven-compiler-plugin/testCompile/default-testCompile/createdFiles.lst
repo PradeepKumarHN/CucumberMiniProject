@@ -1,7 +1,11 @@
+com\pradeep\stepdefinitions\ShoppingCartSteps.class
 com\pradeep\stepdefinitions\RegisterSteps.class
-com\pradeep\stepdefinitions\LoginSteps.class
-com\pradeep\stepdefinitions\DashBoardSteps.class
 com\pradeep\stepdefinitions\TestBase.class
 com\pradeep\runner\DashboardRunner.class
 com\pradeep\runner\RegisterTest.class
 com\pradeep\runner\TestRunner.class
+com\pradeep\stepdefinitions\LoginSteps.class
+com\pradeep\runner\CheckoutRunner.class
+com\pradeep\stepdefinitions\DashBoardSteps.class
+com\pradeep\runner\ShoppingCartRunner.class
+com\pradeep\stepdefinitions\CheckoutSteps.class
