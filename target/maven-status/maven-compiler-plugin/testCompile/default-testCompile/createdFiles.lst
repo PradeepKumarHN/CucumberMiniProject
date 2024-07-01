@@ -9,3 +9,4 @@ com\pradeep\runner\CheckoutRunner.class
 com\pradeep\stepdefinitions\DashBoardSteps.class
 com\pradeep\runner\ShoppingCartRunner.class
 com\pradeep\stepdefinitions\CheckoutSteps.class
+com\pradeep\stepdefinitions\LogoutSteps.class

@@ -26,5 +26,9 @@
             <class name="com.pradeep.runner.CheckoutRunner"/>
         </classes>
     </test>
-
+    <test name="Logout from account">
+        <classes>
+            <class name="com.pradeep.runner.LogoutRunner"/>
+        </classes>
+    </test>
 </suite>
