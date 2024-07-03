@@ -1,4 +1,4 @@
-# E-commerce Site Test Automation
+# E-commerce Site Test Automation( NopCommerce demo site )
 
 This repository contains automated test scripts for an e-commerce site. The tests are written using Cucumber and Selenium to cover various scenarios related to the shopping cart and ordering process.
 
