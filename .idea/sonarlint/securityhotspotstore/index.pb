@@ -54,3 +54,7 @@ l
 <src/test/java/com/pradeep/stepdefinitions/CheckoutSteps.java,5\e\5e600c3f183bb043462d0a207c110e78df725c53
 a
 1src/main/java/com/pradeep/pages/CheckoutPage.java,2\3\23f596d1cb5381c830a91310f6812bda773feba2
+b
+2src/test/java/com/pradeep/runner/LogoutRunner.java,8\f\8fd6a44ce6d9ecec8a4a486d4d6e781eaa61ff0e
+j
+:src/test/java/com/pradeep/stepdefinitions/LogoutSteps.java,8\a\8a94eec975068e43fb7ca88e4e7cc1b730e158ec

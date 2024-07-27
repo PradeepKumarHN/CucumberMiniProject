@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Cucumber UI test suite" parallel="false" thread-count="2">
-    <test name="Registration">
+<suite name="Cucumber UI test suite" parallel="true" thread-count="2" data-provider-thread-count="2">
+    <test name="Registration" parallel="true" thread-count="2">
         <classes>
             <class name="com.pradeep.runner.RegisterTest"/>
         </classes>
     </test>
-          <test name="Login">
+          <test name="Login" parallel="true" thread-count="2">
           <classes>
               <class name="com.pradeep.runner.TestRunner"/>
           </classes>
       </test>
-      <test name="DashBoard Item Management">
+      <test name="DashBoard Item Management" parallel="true" thread-count="2">
           <classes>
               <class name="com.pradeep.runner.DashboardRunner"/>
           </classes>
       </test>
-    <test name="Shopping cart actions">
+    <test name="Shopping cart actions" parallel="true" thread-count="2">
         <classes>
             <class name="com.pradeep.runner.ShoppingCartRunner"/>
         </classes>
     </test>
-    <test name="Checking out Shopping cart">
+    <test name="Checking out Shopping cart" parallel="true" thread-count="2">
         <classes>
             <class name="com.pradeep.runner.CheckoutRunner"/>
         </classes>
     </test>
-    <test name="Logout from account">
+    <test name="Logout from account" parallel="true" thread-count="2">
         <classes>
             <class name="com.pradeep.runner.LogoutRunner"/>
         </classes>
